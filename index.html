@@ -109,6 +109,11 @@
         text-decoration: none;
     }
 
+    a:focus {
+        outline: 2px solid #5932EA;
+        border-radius: 5px;
+    }
+
     ul {
         list-style: none;
     }
@@ -135,95 +140,96 @@
         flex-direction: column;
         max-width: 306px;
         width: 100%;
-        padding: 36px 28px;
+        padding: 2.571em 2em;
         box-shadow: 0 10px 60px 0 rgba(226, 236, 249, 0.5);
     }
 
     .logo {
         display: flex;
         align-items: center;
-        column-gap: 8px;
+        column-gap: 0.571em;
         color: #000;
     }
+    
 
     .logo:hover,
     .logo:focus {
-        color: rgba(0, 0, 0, 0.6);
+        opacity: .75;
+    }
+
+    .logo__icon {
+        min-width: 2.643em;
+        min-height: 2.643em;
+        width: 2.643em;
+        height: 2.643em;
+        color: inherit;
     }
 
     .logo__desc {
         display: flex;
         flex-wrap: wrap;
         align-items: baseline;
-        column-gap: 5px;
+        column-gap: 0.429em;
     }
     
-    .logo__desc-text {
+    .logo__text {
         font-family: "Poppins 600", sans-serif;
         font-size: 1.857em;
     }
 
-    .logo__desc-version {
+    .logo__version {
         font-family: "Poppins", sans-serif;
         font-size: 0.714em;
         color: #838383;
     }
 
-    .logo__icon {
-        min-width: 37px;
-        min-height: 37px;
-        width: 37px;
-        height: 37px;
-        color: inherit;
-    }
-
     .main-nav {
-        margin-top: 54px;
+        margin-top: 3.857em;
     }
 
-    .main-nav-list {
+    .main-nav__list {
         display: flex;
         flex-direction: column;
         align-items: stretch;
-        row-gap: 20px;
+        row-gap: 1.429em;
     }
 
-    .main-nav-list__item {
+    .main-nav__item {
         display: flex;
         flex-direction: row;
     }
 
-    .main-nav-list__item-container {
+    .main-nav__item-container {
         display: flex;
         align-items: center;
         flex-grow: 1;
-        column-gap: 14px;
+        column-gap: 1em;
         padding: 10px 8px 10px 11px;
         border-radius: 8px;
         color: #9197B3;
     }
 
-    .main-nav-list__item-container:hover,
-    .main-nav-list__item-container:focus {
+    .main-nav__item-container:hover,
+    .main-nav__item-container:focus {
         background-color: #5932EA;
         cursor: pointer;
         color: #fff;
         outline: none;
     }
 
-    .main-nav-list__item-icon {
-        min-width: 24px;
-        min-height: 24px;
-        width: 24px;
-        height: 24px;
+    .main-nav__item-icon {
+        min-width: 1.714em;
+        min-height: 1.714em;
+        width: 1.714em;
+        height: 1.714em;
         color: inherit;
     }
 
-    .main-nav-list__item-chevron {
-        min-width: 16px;
-        min-height: 16px;
-        width: 16px;
-        height: 16px;
+    .main-nav__item-chevron {
+        min-width: 1.143em;
+        min-height: 1.143em;
+        width: 1.143em;
+        height: 1.143em;
         margin-left: auto;
         color: inherit;
     }
@@ -232,27 +238,29 @@
         margin-top: auto;
     }
 
-    .user-container {
+    .user__container {
         display: flex;
+        align-items: center;
+        column-gap: 0.857em;
     }
 
-    .user-container__avatar {
-        width: 42px;
-        height: 42px;
+    .user__container:hover,
+    .user__container:focus {
+        opacity: .75;
+    }
+
+    .user__avatar {
+        width: 3em;
+        height: 3em;
         border-radius: 50%;
     }
 
-    .user-container__desc {
-        margin-left: 12px;
-        padding: 1px 0;
-    }
-
-    .user-container__desc-name {
+    .user__name {
         font-family: "Poppins 600", sans-serif;
         color: #000;
     }
 
-    .user-container__desc-role {
+    .user__role {
         font-size: 0.857em;
         color: #757575;
     }
@@ -266,6 +274,17 @@
         max-width: 968px;
         width: 100%;
         margin: 0 auto;
+    }
+
+    .greetings {
+        font-size: 1.714em;
+    }
+
+    .card {
+        background-color: #fff;
+        box-shadow: 0 10px 60px 0 rgba(226, 236, 249, 0.5);
+        border-radius: 10px;
+        padding: 0 25px;
     }
 </style>
 
@@ -282,16 +301,16 @@
                         fill="currentColor" />
                 </svg>
                 <span class="logo__desc">
-                    <span class="logo__desc-text">Dashboard</span>
-                    <span class="logo__desc-version">v.01</span>
+                    <span class="logo__text">Dashboard</span>
+                    <span class="logo__version">v.01</span>
                 </span>
             </a>
 
             <nav class="main-nav">
-                <ul class="main-nav-list">
-                    <li class="main-nav-list__item">
-                        <a href="#" class="main-nav-list__item-container">
-                            <svg class="main-nav-list__item-icon" viewBox="0 0 24 24" fill="none"
+                <ul class="main-nav__list">
+                    <li class="main-nav__item">
+                        <a href="#" class="main-nav__item-container">
+                            <svg class="main-nav__item-icon" viewBox="0 0 24 24" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path d="M9 22H15C20 22 22 20 22 15V9C22 4 20 2 15 2H9C4 2 2 4 2 9V15C2 20 4 22 9 22Z"
                                     stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
@@ -306,7 +325,7 @@
                                     stroke-linejoin="round" stroke="currentColor" />
                             </svg>
                             Dashboard
-                            <svg class="main-nav-list__item-chevron" viewBox="0 0 16 16" fill="none"
+                            <svg class="main-nav__item-chevron" viewBox="0 0 16 16" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path d="M6 12L10 8L6 4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                                     stroke="currentColor" />
@@ -314,9 +333,9 @@
                         </a>
                     </li>
 
-                    <li class="main-nav-list__item">
-                        <a href="#" class="main-nav-list__item-container">
-                            <svg class="main-nav-list__item-icon" viewBox="0 0 24 24" fill="none"
+                    <li class="main-nav__item">
+                        <a href="#" class="main-nav__item-container">
+                            <svg class="main-nav__item-icon" viewBox="0 0 24 24" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path
                                     d="M15 22.75H9C3.57 22.75 1.25 20.43 1.25 15V9C1.25 3.57 3.57 1.25 9 1.25H15C20.43 1.25 22.75 3.57 22.75 9V15C22.75 20.43 20.43 22.75 15 22.75ZM9 2.75C4.39 2.75 2.75 4.39 2.75 9V15C2.75 19.61 4.39 21.25 9 21.25H15C19.61 21.25 21.25 19.61 21.25 15V9C21.25 4.39 19.61 2.75 15 2.75H9Z"
@@ -332,7 +351,7 @@
                                     fill="currentColor" />
                             </svg>
                             Product
-                            <svg class="main-nav-list__item-chevron" viewBox="0 0 16 16" fill="none"
+                            <svg class="main-nav__item-chevron" viewBox="0 0 16 16" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path d="M6 12L10 8L6 4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                                     stroke="currentColor" />
@@ -340,9 +359,9 @@
                         </a>
                     </li>
 
-                    <li class="main-nav-list__item">
-                        <a href="#" class="main-nav-list__item-container">
-                            <svg class="main-nav-list__item-icon" viewBox="0 0 24 24" fill="none"
+                    <li class="main-nav__item">
+                        <a href="#" class="main-nav__item-container">
+                            <svg class="main-nav__item-icon" viewBox="0 0 24 24" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path
                                     d="M15.0006 22.7498H9.00063C7.68063 22.7498 6.58063 22.6198 5.65063 22.3398C5.31063 22.2398 5.09063 21.9098 5.11063 21.5598C5.36063 18.5698 8.39063 16.2197 12.0006 16.2197C15.6106 16.2197 18.6306 18.5598 18.8906 21.5598C18.9206 21.9198 18.7006 22.2398 18.3506 22.3398C17.4206 22.6198 16.3206 22.7498 15.0006 22.7498ZM6.72063 21.0598C7.38063 21.1898 8.13063 21.2498 9.00063 21.2498H15.0006C15.8706 21.2498 16.6206 21.1898 17.2806 21.0598C16.7506 19.1398 14.5606 17.7197 12.0006 17.7197C9.44063 17.7197 7.25063 19.1398 6.72063 21.0598Z"
@@ -356,7 +375,7 @@
                                     fill="currentColor" />
                             </svg>
                             Customers
-                            <svg class="main-nav-list__item-chevron" viewBox="0 0 16 16" fill="none"
+                            <svg class="main-nav__item-chevron" viewBox="0 0 16 16" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path d="M6 12L10 8L6 4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                                     stroke="currentColor" />
@@ -364,9 +383,9 @@
                         </a>
                     </li>
 
-                    <li class="main-nav-list__item">
-                        <a href="#" class="main-nav-list__item-container">
-                            <svg class="main-nav-list__item-icon" viewBox="0 0 24 24" fill="none"
+                    <li class="main-nav__item">
+                        <a href="#" class="main-nav__item-container">
+                            <svg class="main-nav__item-icon" viewBox="0 0 24 24" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path
                                     d="M10.7516 16.8604V18.8904C10.7516 20.6104 9.15158 22.0004 7.18158 22.0004C5.21158 22.0004 3.60156 20.6104 3.60156 18.8904V16.8604C3.60156 18.5804 5.20158 19.8004 7.18158 19.8004C9.15158 19.8004 10.7516 18.5704 10.7516 16.8604Z"
@@ -390,7 +409,7 @@
                                     stroke-linejoin="round" />
                             </svg>
                             Income
-                            <svg class="main-nav-list__item-chevron" viewBox="0 0 16 16" fill="none"
+                            <svg class="main-nav__item-chevron" viewBox="0 0 16 16" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path d="M6 12L10 8L6 4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                                     stroke="currentColor" />
@@ -398,9 +417,9 @@
                         </a>
                     </li>
 
-                    <li class="main-nav-list__item">
-                        <a href="#" class="main-nav-list__item-container">
-                            <svg class="main-nav-list__item-icon" viewBox="0 0 24 24" fill="none"
+                    <li class="main-nav__item">
+                        <a href="#" class="main-nav__item-container">
+                            <svg class="main-nav__item-icon" viewBox="0 0 24 24" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path
                                     d="M12 22.7503C11.37 22.7503 10.78 22.5104 10.34 22.0604L8.82001 20.5404C8.70001 20.4204 8.38 20.2904 8.22 20.2904H6.06C4.76 20.2904 3.70999 19.2403 3.70999 17.9403V15.7804C3.70999 15.6204 3.57999 15.3004 3.45999 15.1804L1.94 13.6604C1.5 13.2204 1.25 12.6303 1.25 12.0003C1.25 11.3703 1.49 10.7803 1.94 10.3403L3.45999 8.82028C3.57999 8.70028 3.70999 8.3803 3.70999 8.2203V6.06039C3.70999 4.76039 4.76 3.71029 6.06 3.71029H8.22C8.38 3.71029 8.70001 3.58029 8.82001 3.46029L10.34 1.94027C11.22 1.06027 12.78 1.06027 13.66 1.94027L15.18 3.46029C15.3 3.58029 15.62 3.71029 15.78 3.71029H17.94C19.24 3.71029 20.29 4.76039 20.29 6.06039V8.2203C20.29 8.3803 20.42 8.70028 20.54 8.82028L22.06 10.3403C22.5 10.7803 22.75 11.3703 22.75 12.0003C22.75 12.6303 22.51 13.2204 22.06 13.6604L20.54 15.1804C20.42 15.3004 20.29 15.6204 20.29 15.7804V17.9403C20.29 19.2403 19.24 20.2904 17.94 20.2904H15.78C15.62 20.2904 15.3 20.4204 15.18 20.5404L13.66 22.0604C13.22 22.5104 12.63 22.7503 12 22.7503ZM4.51999 14.1203C4.91999 14.5203 5.20999 15.2204 5.20999 15.7804V17.9403C5.20999 18.4103 5.59 18.7904 6.06 18.7904H8.22C8.78 18.7904 9.48001 19.0803 9.88 19.4803L11.4 21.0003C11.72 21.3203 12.28 21.3203 12.6 21.0003L14.12 19.4803C14.52 19.0803 15.22 18.7904 15.78 18.7904H17.94C18.41 18.7904 18.79 18.4103 18.79 17.9403V15.7804C18.79 15.2204 19.08 14.5203 19.48 14.1203L21 12.6003C21.16 12.4403 21.25 12.2303 21.25 12.0003C21.25 11.7703 21.16 11.5604 21 11.4004L19.48 9.88034C19.08 9.48034 18.79 8.7803 18.79 8.2203V6.06039C18.79 5.59039 18.41 5.21029 17.94 5.21029H15.78C15.22 5.21029 14.52 4.92035 14.12 4.52035L12.6 3.00033C12.28 2.68033 11.72 2.68033 11.4 3.00033L9.88 4.52035C9.48001 4.92035 8.78 5.21029 8.22 5.21029H6.06C5.59 5.21029 5.20999 5.59039 5.20999 6.06039V8.2203C5.20999 8.7803 4.91999 9.48034 4.51999 9.88034L3 11.4004C2.84 11.5604 2.75 11.7703 2.75 12.0003C2.75 12.2303 2.84 12.4403 3 12.6003L4.51999 14.1203Z"
@@ -416,7 +435,7 @@
                                     fill="currentColor" />
                             </svg>
                             Promote
-                            <svg class="main-nav-list__item-chevron" viewBox="0 0 16 16" fill="none"
+                            <svg class="main-nav__item-chevron" viewBox="0 0 16 16" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path d="M6 12L10 8L6 4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                                     stroke="currentColor" />
@@ -424,9 +443,9 @@
                         </a>
                     </li>
 
-                    <li class="main-nav-list__item">
-                        <a href="#" class="main-nav-list__item-container">
-                            <svg class="main-nav-list__item-icon" viewBox="0 0 24 24" fill="none"
+                    <li class="main-nav__item">
+                        <a href="#" class="main-nav__item-container">
+                            <svg class="main-nav__item-icon" viewBox="0 0 24 24" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path
                                     d="M8 22.3199C7.72 22.3199 7.42998 22.2499 7.16998 22.1099C6.59998 21.8099 6.25 21.2099 6.25 20.5699V19.15C3.23 18.84 1.25 16.6199 1.25 13.4399V7.43994C1.25 3.99994 3.56 1.68994 7 1.68994H17C20.44 1.68994 22.75 3.99994 22.75 7.43994V13.4399C22.75 16.8799 20.44 19.1899 17 19.1899H13.23L8.96997 22.03C8.67997 22.22 8.34 22.3199 8 22.3199ZM7 3.17993C4.42 3.17993 2.75 4.84993 2.75 7.42993V13.43C2.75 16.01 4.42 17.68 7 17.68C7.41 17.68 7.75 18.02 7.75 18.43V20.56C7.75 20.69 7.83 20.75 7.88 20.78C7.93001 20.81 8.03001 20.84 8.14001 20.77L12.59 17.81C12.71 17.73 12.86 17.68 13.01 17.68H17.01C19.59 17.68 21.26 16.01 21.26 13.43V7.42993C21.26 4.84993 19.59 3.17993 17.01 3.17993H7Z"
@@ -439,7 +458,7 @@
                                     fill="currentColor" />
                             </svg>
                             Help
-                            <svg class="main-nav-list__item-chevron" viewBox="0 0 16 16" fill="none"
+                            <svg class="main-nav__item-chevron" viewBox="0 0 16 16" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path d="M6 12L10 8L6 4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                                     stroke="currentColor" />
@@ -450,12 +469,12 @@
             </nav>
 
             <div class="user">
-                <a class="user-container" href="#">
-                    <img class="user-container__avatar" src="./images/user.png" alt="User avatar" />
+                <a class="user__container" href="#">
+                    <img class="user__avatar" src="./images/user.png" alt="User avatar" />
 
-                    <div class="user-container__desc">
-                        <p class="user-container__desc-name">Evano</p>
-                        <p class="user-container__desc-role">Project Manager</p>
+                    <div>
+                        <p class="user__name">Evano</p>
+                        <p class="user__role">Project Manager</p>
                     </div>
                 </a>
             </div>
@@ -463,7 +482,7 @@
 
         <main>
             <div class="main-container">
-                <div class="greetings">Hello Evano</div>
+                <div class="greetings">Hello Evano 👋🏼,</div>
 
                 <section class="card">
                     <div class="table">
