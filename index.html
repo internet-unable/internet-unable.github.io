@@ -302,17 +302,24 @@
         letter-spacing: -0.01em;
     }
 
+    .table__header,
+    .table__body,
+    .table__footer {
+        padding-left: 38px;
+        padding-right: 38px;
+    }
+
     .table__header {
         display: flex;
         justify-content: space-between;
-        padding: 13px 38px;
+        padding-top: 13px;
+        padding-bottom: 13px;
         border-bottom: 1px solid #eeeeee;
     }
 
     .table__body {
         display: flex;
         flex-direction: column;
-        padding: 0 38px;
     }
 
     .table__row-container {
@@ -321,11 +328,12 @@
         justify-content: space-between;
         align-items: center;
         border-bottom: 1px solid #eeeeee;
-        padding: 20px 0;
+        padding: 15px 0;
     }
 
     .table__col {
-        /*  */
+        text-overflow: ellipsis;
+        overflow: hidden;
     }
 
     .table__col--name {
@@ -359,6 +367,11 @@
 
     .table__body .table__col {
         color: #292d32;
+        padding: 5px;
+    }
+
+    .table__body .table__col.table__col--status {
+        overflow: visible;
     }
 
     .table__col .member-status {
@@ -366,13 +379,13 @@
         overflow: hidden;
         text-overflow: ellipsis;
     }
-    
+
     .member-status {
         border-radius: 4px;
         text-align: center;
         padding: 3px 12px;
     }
-    
+
     .member-status--active {
         background-color: #16c09861;
         border: 1px solid #00b087;
@@ -383,6 +396,48 @@
         background: #ffc5c5;
         border: 1px solid #df0404;
         color: #df0404;
+    }
+
+    .table__footer {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        color: #b5b7c0;
+    }
+
+    .pagination {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        column-gap: 10px;
+        flex-basis: 271px;
+    }
+
+    .pagination__item {
+        font-size: 0.857em;
+        padding: 6px 10px;
+    }
+    
+    .pagination__item--action {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 25px;
+        height: 25px;
+        border-radius: 4px;
+        border: 1px solid #eeeeee;
+        background-color: #f5f5f5;
+    }
+
+    .pagination__item--action:hover,
+    .pagination__item--action:focus {
+        cursor: pointer;
+        background-color: #5932ea;
+        border-color: #5932ea;
+        outline: none;
+        color: #fff;
     }
 </style>
 
@@ -585,19 +640,19 @@
                 <section class="card">
                     <div class="table">
                         <ul class="table__header">
-                            <li class="table__col table__col--name">Customer Name</li>
-                            <li class="table__col table__col--company">Company</li>
-                            <li class="table__col table__col--phone">Phone Number</li>
-                            <li class="table__col table__col--email">Email</li>
-                            <li class="table__col table__col--country">Country</li>
-                            <li class="table__col table__col--status">Status</li>
+                            <li class="table__col table__col--name" title="Customer Name">Customer Name</li>
+                            <li class="table__col table__col--company" title="Company">Company</li>
+                            <li class="table__col table__col--phone" title="Phone Number">Phone Number</li>
+                            <li class="table__col table__col--email" title="Email">Email</li>
+                            <li class="table__col table__col--country" title="Country">Country</li>
+                            <li class="table__col table__col--status" title="Status">Status</li>
                         </ul>
 
                         <ul class="table__body">
                             <li class="table__row">
                                 <ul class="table__row-container">
-                                    <li class="table__col table__col--name">Jane Cooper</li>
-                                    <li class="table__col table__col--company">Microsoft</li>
+                                    <li class="table__col table__col--name" title="Jane Cooper">Jane Cooper</li>
+                                    <li class="table__col table__col--company" title="Microsoft">Microsoft</li>
                                     <li class="table__col table__col--phone">
                                         <a href="tel:+225-555-0118" title="Call to +225-555-0118">(225) 555-0118</a>
                                     </li>
@@ -605,17 +660,17 @@
                                         <a href="mailto:jane@microsoft.com"
                                             title="Mail to jane@microsoft.com">jane@microsoft.com</a>
                                     </li>
-                                    <li class="table__col table__col--country">United States</li>
+                                    <li class="table__col table__col--country" title="United States">United States</li>
                                     <li class="table__col table__col--status">
-                                        <div class="member-status member-status--active">Active</div>
+                                        <div class="member-status member-status--active" title="Active">Active</div>
                                     </li>
                                 </ul>
                             </li>
 
                             <li class="table__row">
                                 <ul class="table__row-container">
-                                    <li class="table__col table__col--name">Floyd Miles</li>
-                                    <li class="table__col table__col--company">Yahoo</li>
+                                    <li class="table__col table__col--name" title="Floyd Miles">Floyd Miles</li>
+                                    <li class="table__col table__col--company" title="Yahoo">Yahoo</li>
                                     <li class="table__col table__col--phone">
                                         <a href="tel:+205-555-0100" title="Call to +205-555-0100">(205) 555-0100</a>
                                     </li>
@@ -623,17 +678,18 @@
                                         <a href="mailto:floyd@yahoo.com"
                                             title="Mail to floyd@yahoo.com">floyd@yahoo.com</a>
                                     </li>
-                                    <li class="table__col table__col--country">Kiribati</li>
+                                    <li class="table__col table__col--country" title="Kiribati">Kiribati</li>
                                     <li class="table__col table__col--status">
-                                        <div class="member-status member-status--inactive">Inactive</div>
+                                        <div class="member-status member-status--inactive" title="Inactive">Inactive
+                                        </div>
                                     </li>
                                 </ul>
                             </li>
 
                             <li class="table__row">
                                 <ul class="table__row-container">
-                                    <li class="table__col table__col--name">Ronald Richards</li>
-                                    <li class="table__col table__col--company">Adobe</li>
+                                    <li class="table__col table__col--name" title="Ronald Richards">Ronald Richards</li>
+                                    <li class="table__col table__col--company" title="Adobe">Adobe</li>
                                     <li class="table__col table__col--phone">
                                         <a href="tel:+302-555-0107" title="Call to +302-555-0107">(302) 555-0107</a>
                                     </li>
@@ -641,17 +697,18 @@
                                         <a href="mailto:ronald@adobe.com"
                                             title="Mail to ronald@adobe.com">ronald@adobe.com</a>
                                     </li>
-                                    <li class="table__col table__col--country">Israel</li>
+                                    <li class="table__col table__col--country" title="Israel">Israel</li>
                                     <li class="table__col table__col--status">
-                                        <div class="member-status member-status--inactive">Inactive</div>
+                                        <div class="member-status member-status--inactive" title="Inactive">Inactive
+                                        </div>
                                     </li>
                                 </ul>
                             </li>
 
                             <li class="table__row">
                                 <ul class="table__row-container">
-                                    <li class="table__col table__col--name">Marvin McKinney</li>
-                                    <li class="table__col table__col--company">Tesla</li>
+                                    <li class="table__col table__col--name" title="Marvin McKinney">Marvin McKinney</li>
+                                    <li class="table__col table__col--company" title="Tesla">Tesla</li>
                                     <li class="table__col table__col--phone">
                                         <a href="tel:+252-555-0126" title="Call to +302-555-0126">(252) 555-0126</a>
                                     </li>
@@ -659,17 +716,17 @@
                                         <a href="mailto:marvin@tesla.com"
                                             title="Mail to marvin@tesla.com">marvin@tesla.com</a>
                                     </li>
-                                    <li class="table__col table__col--country">Iran</li>
+                                    <li class="table__col table__col--country" title="Iran">Iran</li>
                                     <li class="table__col table__col--status">
-                                        <div class="member-status member-status--active">Active</div>
+                                        <div class="member-status member-status--active" title="Active">Active</div>
                                     </li>
                                 </ul>
                             </li>
 
                             <li class="table__row">
                                 <ul class="table__row-container">
-                                    <li class="table__col table__col--name">Jerome Bell</li>
-                                    <li class="table__col table__col--company">Google</li>
+                                    <li class="table__col table__col--name" title="Jerome Bell">Jerome Bell</li>
+                                    <li class="table__col table__col--company" title="Google">Google</li>
                                     <li class="table__col table__col--phone">
                                         <a href="tel:+629-555-0129" title="Call to +302-555-0129">(629) 555-0129</a>
                                     </li>
@@ -677,17 +734,17 @@
                                         <a href="mailto:jerome@google.com"
                                             title="Mail to jerome@google.com">jerome@google.com</a>
                                     </li>
-                                    <li class="table__col table__col--country">Réunion</li>
+                                    <li class="table__col table__col--country" title="Réunion">Réunion</li>
                                     <li class="table__col table__col--status">
-                                        <div class="member-status member-status--active">Active</div>
+                                        <div class="member-status member-status--active" title="Active">Active</div>
                                     </li>
                                 </ul>
                             </li>
 
                             <li class="table__row">
                                 <ul class="table__row-container">
-                                    <li class="table__col table__col--name">Kathryn Murphy</li>
-                                    <li class="table__col table__col--company">Microsoft</li>
+                                    <li class="table__col table__col--name" title="Kathryn Murphy">Kathryn Murphy</li>
+                                    <li class="table__col table__col--company" title="Microsoft">Microsoft</li>
                                     <li class="table__col table__col--phone">
                                         <a href="tel:+406-555-0120" title="Call to +406-555-0120">(406) 555-0120</a>
                                     </li>
@@ -695,17 +752,17 @@
                                         <a href="mailto:kathryn@microsoft.com"
                                             title="Mail to kathryn@microsoft.com">kathryn@microsoft.com</a>
                                     </li>
-                                    <li class="table__col table__col--country">Curaçao</li>
+                                    <li class="table__col table__col--country" title="Curaçao">Curaçao</li>
                                     <li class="table__col table__col--status">
-                                        <div class="member-status member-status--active">Active</div>
+                                        <div class="member-status member-status--active" title="Active">Active</div>
                                     </li>
                                 </ul>
                             </li>
 
                             <li class="table__row">
                                 <ul class="table__row-container">
-                                    <li class="table__col table__col--name">Jacob Jones</li>
-                                    <li class="table__col table__col--company">Yahoo</li>
+                                    <li class="table__col table__col--name" title="Jacob Jones">Jacob Jones</li>
+                                    <li class="table__col table__col--company" title="Yahoo">Yahoo</li>
                                     <li class="table__col table__col--phone">
                                         <a href="tel:+208-555-0112" title="Call to +208-555-0112">(208) 555-0112</a>
                                     </li>
@@ -713,17 +770,17 @@
                                         <a href="mailto:jacob@yahoo.com"
                                             title="Mail to jacob@yahoo.com">jacob@yahoo.com</a>
                                     </li>
-                                    <li class="table__col table__col--country">Brazil</li>
+                                    <li class="table__col table__col--country" title="Brazil">Brazil</li>
                                     <li class="table__col table__col--status">
-                                        <div class="member-status member-status--active">Active</div>
+                                        <div class="member-status member-status--active" title="Active">Active</div>
                                     </li>
                                 </ul>
                             </li>
 
                             <li class="table__row">
                                 <ul class="table__row-container">
-                                    <li class="table__col table__col--name">Kristin Watson</li>
-                                    <li class="table__col table__col--company">Facebook</li>
+                                    <li class="table__col table__col--name" title="Kristin Watson">Kristin Watson</li>
+                                    <li class="table__col table__col--company" title="Facebook">Facebook</li>
                                     <li class="table__col table__col--phone">
                                         <a href="tel:+704-555-0127" title="Call to +208-555-0127">(704) 555-0127</a>
                                     </li>
@@ -731,15 +788,43 @@
                                         <a href="mailto:kristin@facebook.com"
                                             title="Mail to kristin@facebook.com">kristin@facebook.com</a>
                                     </li>
-                                    <li class="table__col table__col--country">Åland Islands</li>
+                                    <li class="table__col table__col--country" title="Åland Islands">Åland Islands</li>
                                     <li class="table__col table__col--status">
-                                        <div class="member-status member-status--inactive">Inactive</div>
+                                        <div class="member-status member-status--inactive" title="Inactive">Inactive
+                                        </div>
                                     </li>
                                 </ul>
                             </li>
                         </ul>
 
-                        <div class="table__footer">table footer</div>
+                        <div class="table__footer">
+                            <div class="">Showing data 1 to 8 of 256K entries</div>
+
+                            <ul class="pagination">
+                                <li>
+                                    <a class="pagination__item pagination__item--action" href="#"><</a>
+                                </li>
+                                <li>
+                                    <a class="pagination__item pagination__item--action" href="#">1</a>
+                                </li>
+                                <li>
+                                    <a class="pagination__item pagination__item--action" href="#">2</a>
+                                </li>
+                                <li>
+                                    <a class="pagination__item pagination__item--action" href="#">3</a>
+                                </li>
+                                <li>
+                                    <a class="pagination__item pagination__item--action" href="#">4</a>
+                                </li>
+                                <li class="pagination__item">...</li>
+                                <li>
+                                    <a class="pagination__item pagination__item--action" href="#">40</a>
+                                </li>
+                                <li>
+                                    <a class="pagination__item pagination__item--action" href="#">></a>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </section>
             </div>
