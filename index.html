@@ -205,6 +205,29 @@
                 <div class="greetings">Hello Evano 👋🏼,</div>
 
                 <section class="card">
+                    <div class="search-panel">
+                        <ul>
+                            <li class="search-panel__heading">All Customers</li>
+                            <li class="search-panel__status">Active Members</li>
+                        </ul>
+
+                        <div class="search">
+                            <label class="search__label" for="search__input">
+                                <svg class="search__icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M11 19C15.4183 19 19 15.4183 19 11C19 6.58172 15.4183 3 11 3C6.58172 3 3 6.58172 3 11C3 15.4183 6.58172 19 11 19Z"
+                                        stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                    <path d="M21 21L16.65 16.65" stroke="currentColor" stroke-width="2"
+                                        stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+
+                                <input class="search__input" type="search" placeholder="Search" id="search__input" />
+                            </label>
+
+                        </div>
+                    </div>
+
                     <div class="table">
                         <ul class="table__header">
                             <li class="table__col table__col--name" title="Customer Name">Customer Name</li>
@@ -369,7 +392,8 @@
 
                             <ul class="pagination">
                                 <li>
-                                    <a class="pagination__item pagination__item--action" href="#"><</a>
+                                    <a class="pagination__item pagination__item--action" href="#">
+                                        << /a>
                                 </li>
                                 <li>
                                     <a class="pagination__item pagination__item--action" href="#">1</a>
