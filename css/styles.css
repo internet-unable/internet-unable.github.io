@@ -244,7 +244,7 @@ body {
     display: flex;
     flex-direction: column;
     row-gap: 50px;
-    max-width: 968px;
+    max-width: 85.362%;
     width: 100%;
     margin: 0 auto;
 }
@@ -351,6 +351,7 @@ body {
 .table__col {
     text-overflow: ellipsis;
     overflow: hidden;
+    flex-grow: 1;
 }
 
 .table__col--name {
@@ -376,6 +377,7 @@ body {
 .table__col--status {
     flex-basis: 85px;
     text-align: center;
+    flex-grow: 0;
 }
 
 .table__header .table__col {
@@ -389,6 +391,11 @@ body {
 .table__body .table__col--email,
 .table__body .table__col--phone {
     padding: 5px;
+}
+
+.table__body .table__col--status {
+    text-overflow: clip;
+    overflow: visible;
 }
 
 .table__col .member-status {
