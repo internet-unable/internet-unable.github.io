@@ -29,7 +29,8 @@
 
     --c-green--status: #008767;
     --c-green--status-border: #00b087;
-    --c-green-status-bg: #16c098;
+    --c-green--status-bg: #16c098;
+    --c-green--status-bg-light: #16c09861;
 
     --c-red--status: #df0404;
     --c-red--status-border: #df0404;
@@ -254,14 +255,16 @@ body {
     background-color: var(--c-white);
     box-shadow: 0 10px 60px 0 var(--c-light-gray--shadow);
     border-radius: 25px;
+    padding: 32px 0;
 }
 
 .search-panel {
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     justify-content: space-between;
     padding-left: var(--card--inner-padding);
     padding-right: var(--card--inner-padding);
+    margin-bottom: 27px;
 }
 
 .search-panel__heading {
@@ -272,7 +275,7 @@ body {
 
 .search-panel__status {
     letter-spacing: calc(var(--base-letter-spacing) * -1em);
-    color: var(--c-green-status-bg);
+    color: var(--c-green--status-bg);
 }
 
 .search {
@@ -300,6 +303,8 @@ body {
     border-radius: 10px;
     background-color: #f9fbff;
     padding: 15px 5px 15px 30px;
+    width: 216px;
+    margin-right: 8px;
 }
 
 .search__input:focus {
@@ -337,7 +342,7 @@ body {
     justify-content: space-between;
     align-items: center;
     border-bottom: 1px solid var(--c-gray--table-border);
-    padding: 15px 0;
+    padding: 20px 0;
 }
 
 .table__col {
@@ -376,11 +381,11 @@ body {
 
 .table__body .table__col {
     color: var(--c-black--table);
-    padding: 5px;
 }
 
-.table__body .table__col.table__col--status {
-    overflow: visible;
+.table__col--email,
+.table__col--phone {
+    padding: 5px;
 }
 
 .table__col .member-status {
@@ -396,7 +401,7 @@ body {
 }
 
 .member-status--active {
-    background-color: var(--c-green-status-bg);
+    background-color: var(--c-green--status-bg-light);
     border: 1px solid var(--c-green--status-border);
     color: var(--c-green--status);
 }
@@ -413,7 +418,6 @@ body {
     justify-content: space-between;
     align-items: center;
     padding-top: 27px;
-    padding-bottom: 27px;
     color: var(--c-gray--table);
 }
 
